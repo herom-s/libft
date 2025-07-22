@@ -6,11 +6,11 @@
 /*   By: hermarti <hermarti@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/21 09:46:50 by hermarti          #+#    #+#             */
-/*   Updated: 2025/07/22 11:41:23 by hermarti         ###   ########.fr       */
+/*   Updated: 2025/07/22 12:12:36 by hermarti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 int	ft_isalpha(int c)
 {
-	return ((c >= 'a' && c <= 'z') && (c >= 'A' && c <= 'Z'));
+	return ((c >= 'a' && c <= 'z') || (c >= 'A' && c <= 'Z'));
 }
