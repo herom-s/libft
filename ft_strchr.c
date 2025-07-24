@@ -1,28 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memset.c                                        :+:      :+:    :+:   */
+/*   ft_strchr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hermarti <hermarti@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/07/22 20:02:12 by hermarti          #+#    #+#             */
-/*   Updated: 2025/07/24 17:40:06 by hermarti         ###   ########.fr       */
+/*   Created: 2025/07/24 17:22:14 by hermarti          #+#    #+#             */
+/*   Updated: 2025/07/24 17:34:07 by hermarti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stddef.h>
-
-void	*ft_memset(void *s, int c, size_t n)
+char	*ft_strchr(const char *s, int c)
 {
-	unsigned char	*sp;
-	size_t			i;
-
-	i = 0;
-	sp = (unsigned char *) s;
-	while (i < n)
+	while (*s)
 	{
-		sp[i] = c;
-		i++;
+		if (*s == c)
+			return ((char *) s);
+		s++;
 	}
-	return (s);
+	if (c == '\0')
+		return ((char *) s);
+	return ((void *) 0);
 }

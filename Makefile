@@ -6,7 +6,7 @@
 #    By: hermarti <hermarti@student.42sp.org.br>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/07/21 09:35:18 by hermarti          #+#    #+#              #
-#    Updated: 2025/07/21 10:11:15 by hermarti         ###   ########.fr        #
+#    Updated: 2025/07/24 17:28:01 by hermarti         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,11 +14,21 @@ NAME := libft.a
 
 SRCS := ft_isalpha.c \
 		ft_isdigit.c \
-		ft_isalpha.c \
-		ft_isdigit.c \
+		ft_isalnum.c \
+		ft_isascii.c \
 		ft_isprint.c \
 		ft_strlen.c \
-		ft_memset.c
+		ft_memset.c \
+		ft_bzero.c \
+		ft_memcpy.c \
+		ft_memmove.c \
+		ft_strlcpy.c \
+		ft_strlcat.c \
+		ft_tolower.c \
+		ft_toupper.c \
+		ft_strchr.c \
+		ft_strrchr.c
+
 OBJS := $(SRCS:.c=.o)
 
 CC := cc
