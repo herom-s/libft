@@ -6,7 +6,7 @@
 #    By: hermarti <hermarti@student.42sp.org.br>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/07/21 09:35:18 by hermarti          #+#    #+#              #
-#    Updated: 2025/07/25 14:37:51 by hermarti         ###   ########.fr        #
+#    Updated: 2025/07/25 17:31:23 by hermarti         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -28,7 +28,8 @@ SRCS := ft_isalpha.c \
 		ft_toupper.c \
 		ft_strchr.c \
 		ft_strrchr.c \
-		ft_strncmp.c
+		ft_strncmp.c \
+		ft_memchr.c
 
 OBJS := $(SRCS:.c=.o)
 
