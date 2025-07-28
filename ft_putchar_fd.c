@@ -1,24 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strchr.c                                        :+:      :+:    :+:   */
+/*   ft_puchar_fd.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hermarti <hermarti@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/07/24 17:22:14 by hermarti          #+#    #+#             */
-/*   Updated: 2025/07/28 15:20:29 by hermarti         ###   ########.fr       */
+/*   Created: 2025/07/28 14:42:41 by hermarti          #+#    #+#             */
+/*   Updated: 2025/07/28 14:43:39 by hermarti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-char	*ft_strchr(const char *s, int c)
+#include <unistd.h>
+
+void	ft_putchar_fd(char c, int fd)
 {
-	while (*s)
-	{
-		if (*s == (char) c)
-			return ((char *) s);
-		s++;
-	}
-	if ((char) c == '\0')
-		return ((char *) s);
-	return ((void *) 0);
+	write(fd, &c, 1);
 }

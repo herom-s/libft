@@ -1,24 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strchr.c                                        :+:      :+:    :+:   */
+/*   ft_putstr_fd.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hermarti <hermarti@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/07/24 17:22:14 by hermarti          #+#    #+#             */
-/*   Updated: 2025/07/28 15:20:29 by hermarti         ###   ########.fr       */
+/*   Created: 2025/07/28 14:43:53 by hermarti          #+#    #+#             */
+/*   Updated: 2025/07/28 15:01:27 by hermarti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-char	*ft_strchr(const char *s, int c)
+#include "libft.h"
+#include <unistd.h>
+
+void	ft_putstr_fd(char *s, int fd)
 {
-	while (*s)
-	{
-		if (*s == (char) c)
-			return ((char *) s);
-		s++;
-	}
-	if ((char) c == '\0')
-		return ((char *) s);
-	return ((void *) 0);
+	size_t	s_len;
+
+	s_len = ft_strlen(s);
+	write(fd, s, s_len);
 }

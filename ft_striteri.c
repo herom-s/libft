@@ -1,24 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strchr.c                                        :+:      :+:    :+:   */
+/*   ft_striteri.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hermarti <hermarti@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/07/24 17:22:14 by hermarti          #+#    #+#             */
-/*   Updated: 2025/07/28 15:20:29 by hermarti         ###   ########.fr       */
+/*   Created: 2025/07/28 14:25:14 by hermarti          #+#    #+#             */
+/*   Updated: 2025/07/28 14:35:34 by hermarti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-char	*ft_strchr(const char *s, int c)
+#include <stdlib.h>
+
+void	ft_striteri(char *s, void (*f)(unsigned int, char*))
 {
-	while (*s)
+	size_t	i;
+
+	i = 0;
+	while (s[i])
 	{
-		if (*s == (char) c)
-			return ((char *) s);
-		s++;
+		(*f)(i, &s[i]);
+		i++;
 	}
-	if ((char) c == '\0')
-		return ((char *) s);
-	return ((void *) 0);
 }

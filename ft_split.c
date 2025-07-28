@@ -16,63 +16,98 @@
 
 static size_t	ft_count_word(const char *s, char c)
 {
-	size_t	c_word;
-	int		in_word;
+	const char	*start;
+	const char	*end;
+	size_t		c_word;
 
+	start = s;
+	end = s;
 	c_word = 0;
-	in_word = 0;
-	while (*s)
+	while (*start)
 	{
-		if (*s == c)
+		if (*start != c)
 		{
-			in_word = 0;
+			end = start;
+			while (*end != '\0' && *end != c)
+				end++;
+			if (*end == c || *end == '\0')
+				c_word++;
+			start = end;
 		}
-		else if (in_word == 0)
-		{
-			in_word = 1;
-			c_word++;
-		}
-		s++;
+		if (*start == '\0')
+			break ;
+		start++;
 	}
 	return (c_word);
 }
 
-char	**ft_free_split(char **s, size_t i)
+static char	*ft_substrp(char const *s, char const *start, size_t len)
+{
+	char	*sub_str;
+	size_t	max_len;
+	size_t	s_len;
+
+	s_len = ft_strlen(s);
+	if (*start == '\0')
+		return (ft_strdup(""));
+	if (start < s || start > s + s_len)
+		return (ft_strdup(""));
+	max_len = ft_strlen(start);
+	if (len < max_len)
+		max_len = len;
+	sub_str = malloc((max_len + 1) * sizeof(char));
+	if (!sub_str)
+		return ((void *) 0);
+	ft_strlcpy(sub_str, start, max_len + 1);
+	return (sub_str);
+}
+
+static char	**ft_free_split(char **s, size_t i)
 {
 	while (i > 0)
 	{
 		free(s[--i]);
 	}
 	free(s);
-	return ((void *) 0);
+	s = (void *) 0;
+	return (s);
+}
+
+static char	**ft_split_str(char **res, char const *s, char c)
+{
+	const char	*start;
+	const char	*end;
+	size_t		i;
+
+	start = s;
+	i = 0;
+	while (*start)
+	{
+		if (*start != c)
+		{
+			end = start;
+			while (*end != '\0' && *end != c)
+				end++;
+			res[i] = ft_substrp(start, start, end - start);
+			if (!res[i])
+				return (ft_free_split(res, i));
+			i++;
+			start = end;
+		}
+		else
+			start++;
+	}
+	res[i] = (void *) 0;
+	return (res);
 }
 
 char	**ft_split(char const *s, char c)
 {
 	char	**res;
-	size_t	start;
-	size_t	end;
-	size_t	i;
 
-	res = (char **) calloc((ft_count_word(s, c) + 1), sizeof(char *));
+	res = (char **) malloc((ft_count_word(s, c) + 1) * sizeof(char *));
 	if (!res)
 		return ((void *) 0);
-	start = 0;
-	i = 0;
-	while (s[start])
-	{
-		while (s[start] && s[start] == c)
-			start++;
-		end = start;
-		while (s[start] && s[start] != c)
-			start++;
-		if (start > end)
-		{
-			res[i] = ft_substr(s, end, start - end);
-			if (!res[i])
-				return (ft_free_split(res, i));
-			i++;
-		}
-	}
+	res = ft_split_str(res, s, c);
 	return (res);
 }
