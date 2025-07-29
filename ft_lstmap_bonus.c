@@ -10,7 +10,31 @@
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "libft.h"
+
 t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
 {
+	t_list	*new;
+	t_list	*head;
+	t_list	*element;
 
+	if (!lst || !f || !del)
+		return ((void *) 0);
+	new = (void *) 0;
+	head = lst;
+	element = (void *) 0;
+	while (head)
+	{
+		element = ft_lstnew((*f)(head->content));
+		if (element == (void *) 0)
+		{
+			ft_lstdelone(element, del);
+			ft_lstclear(&new, del);
+			ft_lstclear(&lst, del);
+			return ((void *) 0);
+		}
+		ft_lstadd_back(&new, element);
+		head = head->next;
+	}
+	return (new);
 }
