@@ -20,9 +20,22 @@ jobs:
         python -m pip install norminette
     - name: Lint with norminette
       run: |
-        # Run norminette and capture output
-        if ! norminette .; then
-          echo "Norminette found errors!"
+        echo "Running norminette..."
+        
+        # Run norminette and save output to file
+        norminette . > norminette_results.txt 2>&1
+        cat norminette_results.txt
+        
+        # Count errors and warnings
+        error_count=$(grep -c "Error:" norminette_results.txt || echo "0")
+        warning_count=$(grep -c "Warning:" norminette_results.txt || echo "0")
+        
+        echo "Found $error_count errors and $warning_count warnings"
+        
+        # Fail if any errors or warnings found
+        if [ "$error_count" -gt 0 ] || [ "$warning_count" -gt 0 ]; then
+          echo "❌ Norminette found $error_count errors and $warning_count warnings!"
           exit 1
         fi
-        echo "Norminette check passed!"
+        
+        echo "✅ Norminette check passed!"
