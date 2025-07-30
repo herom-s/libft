@@ -1,9 +1,10 @@
 name: norminette
-
 on:
   push:
-    branches:
-      - master    
+    branches: [ "improvements" ]
+  pull_request:
+    branches: [ "improvements" ]
+  workflow_dispatch:
 jobs:
   norminette:
     runs-on: ubuntu-latest
