@@ -29,9 +29,7 @@ jobs:
         # Count errors and warnings
         error_count=$(grep -c "Error:" norminette_results.txt || echo "0")
         warning_count=$(grep -c "Warning:" norminette_results.txt || echo "0")
-        
-        echo "Found $error_count errors and $warning_count warnings"
-        
+
         # Fail if any errors or warnings found
         if [ "$error_count" -gt 0 ] || [ "$warning_count" -gt 0 ]; then
           echo "❌ Norminette found $error_count errors and $warning_count warnings!"
