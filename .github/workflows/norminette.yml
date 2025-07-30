@@ -20,4 +20,4 @@ jobs:
         python -m pip install norminette
     - name: Lint with norminette
       run: |
-        norminette
+        norminette .
