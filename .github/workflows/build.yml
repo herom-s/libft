@@ -1,0 +1,19 @@
+name: build
+
+on:
+  push:
+    branches: [ "improvements" ]
+  pull_request:
+    branches: [ "improvements" ]
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: src
+    steps:
+      - uses: actions/checkout@v4
+      - name: make
+        run: make
