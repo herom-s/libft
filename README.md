@@ -1,6 +1,7 @@
 # Libft
 
 ![42 School Badge](https://img.shields.io/badge/42-School-000000?style=for-the-badge&logo=42&logoColor=white)
+![Grade](https://img.shields.io/badge/Grade-125%2F100-brightgreen?style=for-the-badge)
 ![C Badge](https://img.shields.io/badge/C-00599C?style=for-the-badge&logo=c&logoColor=white)
 ![License](https://img.shields.io/badge/license-MIT-green?style=for-the-badge)
 
