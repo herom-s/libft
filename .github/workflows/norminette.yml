@@ -20,4 +20,9 @@ jobs:
         python -m pip install norminette
     - name: Lint with norminette
       run: |
-        norminette .
+        # Run norminette and capture output
+        if ! norminette .; then
+          echo "Norminette found errors!"
+          exit 1
+        fi
+        echo "Norminette check passed!"
