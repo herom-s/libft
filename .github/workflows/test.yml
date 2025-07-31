@@ -1,0 +1,48 @@
+name: test
+
+on:
+  push:
+    branches: [ "improvements" ]
+  pull_request:
+    branches: [ "improvements" ]
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: Checkout libft
+      uses: actions/checkout@v4
+
+    - name: Install dependencies
+      run: |
+        sudo apt-get update
+        sudo apt-get install -y build-essential libbsd-dev
+
+    - name: Test compilation
+      run: |
+        make
+        make bonus || echo "Bonus not implemented yet"
+
+    - name: Verify libft.a created
+      run: |
+        if [ -f libft.a ]; then
+          echo "✅ libft.a compiled successfully"
+          echo "Library contains:"
+          ar -t libft.a
+        else
+          echo "❌ libft.a not found"
+          exit 1
+        fi
+
+    - name: Clone and run libftDangerZone tests
+      run: |
+        cd ..
+        git clone https://github.com/herom-s/libftDangerZone.git
+        cd libftDangerZone
+        make test
+
+    - name: Show test results
+      run: |
+        echo "✅ All tests completed!"
+        echo "Check the output above for detailed results."
