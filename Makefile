@@ -17,7 +17,7 @@ IDIR = inc/
 SRC = $(wildcard $(SRCDIR)*.c)
 
 CC = cc
-CFLAGS = -Wall -Wextra -Werror -I $(IDIR)
+CFLAGS = -Wall -Wextra -Werror -I$(IDIR)
 
 DEBUG ?= 0
 ifeq ($(DEBUG), 1)
