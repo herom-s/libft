@@ -1,4 +1,7 @@
 # Libft
+[![build](https://github.com/herom-s/libft/actions/workflows/build.yml/badge.svg?branch=improvements)](https://github.com/herom-s/libft/actions/workflows/build.yml)
+[![norminette](https://github.com/herom-s/libft/actions/workflows/norminette.yml/badge.svg?branch=improvements)](https://github.com/herom-s/libft/actions/workflows/norminette.yml)
+[![test](https://github.com/herom-s/libft/actions/workflows/test.yml/badge.svg?branch=improvements)](https://github.com/herom-s/libft/actions/workflows/test.yml)
 
 ![42 School Badge](https://img.shields.io/badge/42-School-000000?style=for-the-badge&logo=42&logoColor=white)
 ![Grade](https://img.shields.io/badge/Grade-125%2F100-brightgreen?style=for-the-badge)
