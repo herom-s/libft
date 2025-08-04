@@ -1,3 +1,6 @@
+# Compile Flags
+compile_flags.txt
+
 # Prerequisites
 *.d
 

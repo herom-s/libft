@@ -6,12 +6,13 @@
 /*   By: hermarti <hermarti@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/21 09:48:04 by hermarti          #+#    #+#             */
-/*   Updated: 2025/07/28 21:15:26 by hermarti         ###   ########.fr       */
+/*   Updated: 2025/08/04 13:58:08 by hermarti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef LIBFT_H
 # define LIBFT_H
+#include <stddef.h>
 # include <stdlib.h>
 
 int		ft_isalpha(int c);
@@ -55,10 +56,11 @@ char	**ft_split(char const *s, char c);
 char	*ft_strmapi(char const *s, char (*f)(unsigned int, char));
 void	ft_striteri(char *s, void (*f)(unsigned int, char*));
 
-void	ft_putstr_fd(char *s, int fd);
-void	ft_putchar_fd(char c, int fd);
-void	ft_putendl_fd(char *s, int fd);
-void	ft_putnbr_fd(int n, int fd);
+size_t	ft_putstr_fd(char *s, int fd);
+size_t	ft_putchar_fd(char c, int fd);
+size_t	ft_putendl_fd(char *s, int fd);
+size_t	ft_putnbr_fd(int n, int fd);
+size_t	ft_putnbr_base_fd(int n, char *base, int fd);
 
 typedef struct s_list
 {
