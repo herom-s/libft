@@ -6,7 +6,7 @@
 /*   By: hermarti <hermarti@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/21 09:48:04 by hermarti          #+#    #+#             */
-/*   Updated: 2025/08/04 13:58:08 by hermarti         ###   ########.fr       */
+/*   Updated: 2025/08/04 15:11:16 by hermarti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,6 +60,7 @@ size_t	ft_putchar_fd(char c, int fd);
 size_t	ft_putendl_fd(char *s, int fd);
 size_t	ft_putnbr_fd(int n, int fd);
 size_t	ft_putnbr_base_fd(int n, char *base, int fd);
+size_t	ft_putunbr_base_fd(unsigned int n, char *base, int fd);
 size_t	ft_putulnbr_base_fd(unsigned long n, char *base, int fd);
 
 typedef struct s_list
