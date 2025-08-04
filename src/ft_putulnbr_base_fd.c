@@ -22,7 +22,7 @@ size_t	ft_putulnbr_base_fd(unsigned long n, char *base, int fd)
 	base_len = ft_strlen(base);
 	if (n < base_len)
 		return (ft_putchar_fd(base[n % base_len], fd));
-	byte_cont += ft_putnbr_base_fd(n / base_len, base, fd);
-	byte_cont += ft_putnbr_base_fd(n % base_len, base, fd);
+	byte_cont += ft_putulnbr_base_fd(n / base_len, base, fd);
+	byte_cont += ft_putulnbr_base_fd(n % base_len, base, fd);
 	return (byte_cont);
 }
