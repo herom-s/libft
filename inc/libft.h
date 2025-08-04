@@ -60,7 +60,8 @@ size_t	ft_putstr_fd(char *s, int fd);
 size_t	ft_putchar_fd(char c, int fd);
 size_t	ft_putendl_fd(char *s, int fd);
 size_t	ft_putnbr_fd(int n, int fd);
-size_t	ft_putnbr_base_fd(int n, char *base, int fd);
+size_t	ft_putnbr_basfd(int n, char *base, int fd);
+size_t	ft_putulnbr_basfd(int n, char *base, int fd);
 
 typedef struct s_list
 {
