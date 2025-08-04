@@ -27,7 +27,8 @@ size_t	ft_putnbr_fd(int n, int fd)
 	}
 	if (nb < 10)
 	{
-		return (ft_putchar_fd(nb + '0', fd));
+		byte_cont += ft_putchar_fd(nb + '0', fd);
+		return (byte_cont);
 	}
 	byte_cont += ft_putnbr_fd(nb / 10, fd);
 	byte_cont += ft_putnbr_fd(nb % 10, fd);

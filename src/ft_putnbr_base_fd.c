@@ -28,7 +28,10 @@ size_t	ft_putnbr_base_fd(int n, char *base, int fd)
 		byte_cont += ft_putchar_fd('-', fd);
 	}
 	if (nb < (long int) base_len)
-		return (ft_putchar_fd(base[nb % base_len], fd));
+	{
+		byte_cont += ft_putchar_fd(base[nb % base_len], fd);
+		return (byte_cont);
+	}
 	byte_cont += ft_putnbr_base_fd(nb / base_len, base, fd);
 	byte_cont += ft_putnbr_base_fd(nb % base_len, base, fd);
 	return (byte_cont);
