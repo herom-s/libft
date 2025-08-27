@@ -6,7 +6,7 @@
 /*   By: hermarti <hermarti@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/21 09:48:04 by hermarti          #+#    #+#             */
-/*   Updated: 2025/08/04 15:11:16 by hermarti         ###   ########.fr       */
+/*   Updated: 2025/08/27 13:57:05 by hermarti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,4 +78,23 @@ void	ft_lstdelone(t_list *lst, void (*del)(void*));
 void	ft_lstclear(t_list **lst, void (*del)(void*));
 void	ft_lstiter(t_list *lst, void (*f)(void *));
 t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *));
+
+int	ft_printf(const char *format, ...);
+int	ft_printf_hex(char flag, unsigned int nb, int fd);
+int	ft_printf_char(char c, int fd);
+int	ft_printf_string(char *str, int fd);
+int	ft_printf_pointer(unsigned long paddr, int fd);
+int	ft_printf_decimal(int decimal, int fd);
+int	ft_printf_interger(int interger, int fd);
+int	ft_printf_uinterger(unsigned int interger, int fd);
+
+# ifndef OPEN_MAX
+#  define OPEN_MAX 1024
+# endif
+
+# ifndef BUFFER_SIZE
+#  define BUFFER_SIZE 1024
+# endif
+
+char	*get_next_line(int fd);
 #endif
