@@ -12,31 +12,29 @@
 
 double	ft_atod(char *str)
 {
-    double	result;
-    double	fraction;
-    int		sign;
-    int		i;
+	double	result;
+	double	fraction;
+	int		sign;
+	int		i;
 
-    result = 0.0;
-    fraction = 1.0;
-    sign = 1;
-    i = 0;
-    if (str[i] == '-' || str[i] == '+')
+	result = 0.0;
+	fraction = 1.0;
+	sign = 1;
+	i = 0;
+	if (str[i] == '-' || str[i] == '+')
 	{
-		if (str[i] == '-')
+		if (str[i++] == '-')
 			sign = -1;
-		i++;
 	}
-    while (str[i] && str[i] != '.')
-        result = result * 10.0 + (str[i++] - '0');
-    if (str[i] == '.')
-    {
-        i++;
-        while (str[i])
-        {
-            fraction *= 0.1;
-            result += (str[i++] - '0') * fraction;
-        }
-    }
-    return (result * sign);
+	while (str[i] && str[i] != '.')
+		result = result * 10.0 + (str[i++] - '0');
+	if (str[i++] == '.')
+	{
+		while (str[i])
+		{
+			fraction *= 0.1;
+			result += (str[i++] - '0') * fraction;
+		}
+	}
+	return (result * sign);
 }

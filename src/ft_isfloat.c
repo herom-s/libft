@@ -14,26 +14,26 @@
 
 int	ft_isfloat(char *str)
 {
-    int	i;
-    int	has_dot;
+	int	i;
+	int	has_dot;
 
-    i = 0;
-    has_dot = 0;
-    if (str[i] == '-' || str[i] == '+')
-        i++;
-    if (!str[i])
-        return (0);
-    while (str[i])
-    {
-        if (str[i] == '.')
-        {
-            if (has_dot)
-                return (0);
-            has_dot = 1;
-        }
-        else if (!ft_isdigit(str[i]))
-            return (0);
-        i++;
-    }
-    return (1);
+	i = 0;
+	has_dot = 0;
+	if (str[i] == '-' || str[i] == '+')
+		i++;
+	if (!str[i])
+		return (0);
+	while (str[i])
+	{
+		if (str[i] == '.')
+		{
+			if (has_dot)
+				return (0);
+			has_dot = 1;
+		}
+		else if (!ft_isdigit(str[i]))
+			return (0);
+		i++;
+	}
+	return (1);
 }
