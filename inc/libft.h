@@ -79,14 +79,14 @@ void	ft_lstclear(t_list **lst, void (*del)(void*));
 void	ft_lstiter(t_list *lst, void (*f)(void *));
 t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *));
 
-int	ft_printf(const char *format, ...);
-int	ft_printf_hex(char flag, unsigned int nb, int fd);
-int	ft_printf_char(char c, int fd);
-int	ft_printf_string(char *str, int fd);
-int	ft_printf_pointer(unsigned long paddr, int fd);
-int	ft_printf_decimal(int decimal, int fd);
-int	ft_printf_interger(int interger, int fd);
-int	ft_printf_uinterger(unsigned int interger, int fd);
+int		ft_printf(const char *format, ...);
+int		ft_printf_hex(char flag, unsigned int nb, int fd);
+int		ft_printf_char(char c, int fd);
+int		ft_printf_string(char *str, int fd);
+int		ft_printf_pointer(unsigned long paddr, int fd);
+int		ft_printf_decimal(int decimal, int fd);
+int		ft_printf_interger(int interger, int fd);
+int		ft_printf_uinterger(unsigned int interger, int fd);
 
 # ifndef OPEN_MAX
 #  define OPEN_MAX 1024

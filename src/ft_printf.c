@@ -44,11 +44,9 @@ int	ft_print_formart(char flag, va_list args)
 int	ft_printf(const char *format, ...)
 {
 	int		p_count;
-	int		res_count;
 	va_list	args;
 
 	p_count = 0;
-	res_count = 0;
 	va_start(args, format);
 	while (*format)
 	{
