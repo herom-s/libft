@@ -6,7 +6,7 @@
 /*   By: hermarti <hermarti@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/21 09:48:04 by hermarti          #+#    #+#             */
-/*   Updated: 2025/08/27 13:57:05 by hermarti         ###   ########.fr       */
+/*   Updated: 2025/08/27 18:18:31 by hermarti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,6 +79,7 @@ void	ft_lstclear(t_list **lst, void (*del)(void*));
 void	ft_lstiter(t_list *lst, void (*f)(void *));
 t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *));
 
+int		ft_dprintf(int fd, const char *format, ...);
 int		ft_printf(const char *format, ...);
 int		ft_printf_hex(char flag, unsigned int nb, int fd);
 int		ft_printf_char(char c, int fd);
