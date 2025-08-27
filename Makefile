@@ -6,7 +6,7 @@
 #    By: hermarti <hermarti@student.42sp.org.br>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/07/21 09:35:18 by hermarti          #+#    #+#              #
-#    Updated: 2025/08/27 18:18:53 by hermarti         ###   ########.fr        #
+#    Updated: 2025/08/27 19:04:32 by hermarti         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -59,6 +59,7 @@ SRC = ft_atoi.c \
       ft_putstr_fd.c \
       ft_strchr.c \
       ft_strlcat.c \
+	  ft_strcmp.c \
       ft_strncmp.c \
       ft_substr.c \
 	  ft_dprintf.c \
