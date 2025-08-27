@@ -15,7 +15,7 @@
 #include <stdio.h>
 #include <unistd.h>
 
-int	ft_print_formart(char flag, va_list args, int fd)
+static int	ft_print_formart(char flag, va_list args, int fd)
 {
 	int	p_count;
 
