@@ -6,7 +6,7 @@
 #    By: hermarti <hermarti@student.42sp.org.br>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/07/21 09:35:18 by hermarti          #+#    #+#              #
-#    Updated: 2025/08/27 19:04:32 by hermarti         ###   ########.fr        #
+#    Updated: 2025/08/27 19:12:18 by hermarti         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -64,6 +64,7 @@ SRC = ft_atoi.c \
       ft_substr.c \
 	  ft_dprintf.c \
       ft_printf.c \
+	  ft_print_formart.c \
       ft_printf_char.c \
       ft_printf_decimal.c \
       ft_printf_hex.c \

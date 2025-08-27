@@ -6,13 +6,14 @@
 /*   By: hermarti <hermarti@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/21 09:48:04 by hermarti          #+#    #+#             */
-/*   Updated: 2025/08/27 19:03:57 by hermarti         ###   ########.fr       */
+/*   Updated: 2025/08/27 19:12:54 by hermarti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef LIBFT_H
 # define LIBFT_H
 # include <stdlib.h>
+# include <stdarg.h>
 
 int		ft_isalpha(int c);
 int		ft_isdigit(int c);
@@ -82,6 +83,7 @@ t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *));
 
 int		ft_dprintf(int fd, const char *format, ...);
 int		ft_printf(const char *format, ...);
+int		ft_print_formart(char flag, va_list args, int fd);
 int		ft_printf_hex(char flag, unsigned int nb, int fd);
 int		ft_printf_char(char c, int fd);
 int		ft_printf_string(char *str, int fd);
