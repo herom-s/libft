@@ -20,6 +20,8 @@ int	ft_dprintf(int fd, const char *format, ...)
 	int		p_count;
 	va_list	args;
 
+	if (fd < 0)
+		return (-1);
 	p_count = 0;
 	va_start(args, format);
 	while (*format)
