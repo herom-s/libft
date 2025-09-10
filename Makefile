@@ -6,7 +6,7 @@
 #    By: hermarti <hermarti@student.42sp.org.br>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/07/21 09:35:18 by hermarti          #+#    #+#              #
-#    Updated: 2025/08/27 19:48:48 by hermarti         ###   ########.fr        #
+#    Updated: 2025/09/09 23:02:51 by hermarti         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -55,6 +55,7 @@ SRC = ft_atoi.c \
       ft_isalnum.c \
       ft_isprint.c \
 	  ft_isfloat.c \
+	  ft_isnumber.c \
       ft_lstclear.c \
       ft_lstmap.c \
       ft_memcmp.c \

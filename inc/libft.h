@@ -6,7 +6,7 @@
 /*   By: hermarti <hermarti@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/21 09:48:04 by hermarti          #+#    #+#             */
-/*   Updated: 2025/08/27 19:47:31 by hermarti         ###   ########.fr       */
+/*   Updated: 2025/09/09 23:02:14 by hermarti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 # include <stdarg.h>
 
 int		ft_isfloat(char *str);
+int		ft_isnumber(char *str);
 int		ft_isalpha(int c);
 int		ft_isdigit(int c);
 int		ft_isalnum(int c);
