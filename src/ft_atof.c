@@ -17,8 +17,8 @@ float	ft_atof(char *str)
 	int		sign;
 	int		i;
 
-	result = 0.0;
-	fraction = 1.0;
+	result = 0.0f;
+	fraction = 1.0f;
 	sign = 1;
 	i = 0;
 	if (str[i] == '-' || str[i] == '+')
@@ -27,13 +27,13 @@ float	ft_atof(char *str)
 			sign = -1;
 	}
 	while (str[i] && str[i] != '.')
-		result = result * 10.0 + (str[i++] - '0');
+		result = result * 10.0f + (str[i++] - '0');
 	if (str[i++] == '.')
 	{
 		while (str[i])
 		{
-			fraction *= 0.1;
-			result += (str[i++] - '0') * fraction;
+			fraction *= 0.1f;
+				result += (str[i++] - '0') * fraction;
 		}
 	}
 	return (result * sign);
