@@ -45,7 +45,7 @@ int		ft_strncmp(const char *s1, const char *s2, size_t n);
 int		ft_strcmp(const char *s1, const char *s2);
 
 double	ft_atod(char *str);
-double	ft_atof(char *str);
+float	ft_atof(char *str);
 int		ft_atoi(const char *nptr);
 char	*ft_itoa(int n);
 
