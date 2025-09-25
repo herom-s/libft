@@ -76,7 +76,16 @@ SRC = ft_atoi.c \
       ft_printf_pointer.c \
       ft_printf_string.c \
       ft_printf_uinterger.c \
-      get_next_line.c
+      get_next_line.c \
+	  ft_dlstadd_back.c \
+	  ft_dlstadd_front.c \
+	  ft_dlstast.c \
+	  ft_dlstclear.c \
+	  ft_dlstdelone.c \
+	  ft_dlstiter.c \
+	  ft_dlstmap.c \
+	  ft_dlstnew.c \
+	  ft_dlstsize.c
 
 SRCS = $(addprefix $(SRCDIR), $(SRC))
 

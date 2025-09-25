@@ -85,6 +85,23 @@ void	ft_lstclear(t_list **lst, void (*del)(void*));
 void	ft_lstiter(t_list *lst, void (*f)(void *));
 t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *));
 
+typedef struct s_dlist
+{
+	void			*content;
+	struct s_dlist	*prev;
+	struct s_dlist	*next;
+}				t_dlist;
+
+t_dlist	*ft_dlstnew(void *content);
+void	ft_dlstadd_front(t_dlist **lst, t_dlist *new);
+int		ft_dlstsize(t_dlist *lst);
+t_dlist	*ft_dlst_last(t_dlist *lst);
+void	ft_dlstadd_back(t_dlist **lst, t_dlist *new);
+void	ft_dlstdelone(t_dlist *lst, void (*del)(void*));
+void	ft_dlstclear(t_dlist **lst, void (*del)(void*));
+void	ft_dlstiter(t_dlist *lst, void (*f)(void *));
+t_dlist	*ft_dlstmap(t_dlist *lst, void *(*f)(void *), void (*del)(void *));
+
 int		ft_dprintf(int fd, const char *format, ...);
 int		ft_printf(const char *format, ...);
 int		ft_print_formart(char flag, va_list args, int fd);
