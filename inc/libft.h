@@ -15,6 +15,9 @@
 # include <stdlib.h>
 # include <stdarg.h>
 
+# define INT_MAX 2147483647
+# define INT_MIN -2147483648
+
 int		ft_isfloat(char *str);
 int		ft_isnumber(char *str);
 int		ft_isalpha(int c);
