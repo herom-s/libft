@@ -6,7 +6,7 @@
 /*   By: hermarti <hermarti@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/21 09:48:04 by hermarti          #+#    #+#             */
-/*   Updated: 2025/09/09 23:02:14 by hermarti         ###   ########.fr       */
+/*   Updated: 2025/09/30 15:35:28 by hermarti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,7 @@ int		ft_isdigit(int c);
 int		ft_isalnum(int c);
 int		ft_isascii(int c);
 int		ft_isprint(int c);
+int		ft_isspace(int c);
 
 size_t	ft_strlen(const char *str);
 
@@ -47,6 +48,7 @@ int		ft_strcmp(const char *s1, const char *s2);
 double	ft_atod(char *str);
 float	ft_atof(char *str);
 int		ft_atoi(const char *nptr);
+long	ft_atol(const char *nptr);
 char	*ft_itoa(int n);
 
 char	*ft_strdup(const char *s);

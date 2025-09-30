@@ -6,7 +6,7 @@
 /*   By: hermarti <hermarti@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/27 19:43:09 by hermarti          #+#    #+#             */
-/*   Updated: 2025/08/27 19:43:38 by hermarti         ###   ########.fr       */
+/*   Updated: 2025/09/30 15:33:49 by hermarti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ static int	ft_skip_whitespace_and_sign(char *str, int *sign)
 	int	i;
 
 	i = 0;
-	while (str[i] == ' ' || str[i] == '\t' || str[i] == '\n')
+	while (ft_isspace(str[i]))
 		i++;
 	if (str[i] == '-' || str[i] == '+')
 	{

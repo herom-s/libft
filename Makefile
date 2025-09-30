@@ -6,7 +6,7 @@
 #    By: hermarti <hermarti@student.42sp.org.br>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/07/21 09:35:18 by hermarti          #+#    #+#              #
-#    Updated: 2025/09/09 23:02:51 by hermarti         ###   ########.fr        #
+#    Updated: 2025/09/30 15:33:03 by hermarti         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,6 +17,7 @@ IDIR = inc/
 SRC = ft_atoi.c \
 	  ft_atod.c \
 	  ft_atof.c \
+	  ft_atol.c \
       ft_isalpha.c \
       ft_itoa.c \
       ft_lstdelone.c \
@@ -56,6 +57,7 @@ SRC = ft_atoi.c \
       ft_isprint.c \
 	  ft_isfloat.c \
 	  ft_isnumber.c \
+	  ft_isspace.c \
       ft_lstclear.c \
       ft_lstmap.c \
       ft_memcmp.c \
