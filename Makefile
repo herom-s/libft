@@ -6,7 +6,7 @@
 #    By: hermarti <hermarti@student.42sp.org.br>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/07/21 09:35:18 by hermarti          #+#    #+#              #
-#    Updated: 2025/09/30 15:33:03 by hermarti         ###   ########.fr        #
+#    Updated: 2025/10/01 03:00:02 by hermarti         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -120,13 +120,9 @@ $(ODIR)%.o: $(SRCDIR)%.c
 $(NAME): $(OBJS)
 	ar rcs $@ $^
 
-cleanobj:
-	$(RM) $(wildcard $(OBJS))
 
-cleanobjdir: cleanobj
+clean:
 	$(RMDIR) $(ODIR)
-
-clean: cleanobjdir
 
 fclean: clean
 	$(RM) $(NAME)
