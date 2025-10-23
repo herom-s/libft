@@ -83,7 +83,7 @@ char	*get_next_line(int fd)
 
 	if (fd < 0 || BUFFER_SIZE <= 0)
 	{
-		if (rest[fd])
+		if (fd >= 0 && fd < OPEN_MAX && rest[fd])
 			ft_free_rest(&rest[fd]);
 		return (NULL);
 	}
