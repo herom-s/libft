@@ -43,8 +43,18 @@ static char	*ft_break_rest(char **rest)
 
 static char	*ft_free_rest(char **rest)
 {
-	free(*rest);
-	*rest = NULL;
+	int	i;
+
+	i = 0;
+	while (i < OPEN_MAX)
+	{
+		if (rest[i])
+		{
+			free(rest[i]);
+			rest[i] = NULL;
+		}
+		i++;
+	}
 	return (NULL);
 }
 
@@ -82,11 +92,7 @@ char	*get_next_line(int fd)
 	char		*line;
 
 	if (fd < 0 || BUFFER_SIZE <= 0)
-	{
-		if (fd >= 0 && fd < OPEN_MAX && rest[fd])
-			ft_free_rest(&rest[fd]);
-		return (NULL);
-	}
+		return (ft_free_rest(&rest[fd]));
 	buffer = malloc((BUFFER_SIZE + 1) * sizeof(char));
 	if (!buffer)
 		return (NULL);
