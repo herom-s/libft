@@ -92,7 +92,7 @@ char	*get_next_line(int fd)
 	char		*line;
 
 	if (fd < 0 || BUFFER_SIZE <= 0)
-		return (ft_free_rest(&rest[fd]));
+		return (ft_free_rest(rest));
 	buffer = malloc((BUFFER_SIZE + 1) * sizeof(char));
 	if (!buffer)
 		return (NULL);
