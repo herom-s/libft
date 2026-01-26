@@ -11,99 +11,83 @@
 /* ************************************************************************** */
 
 #include "libft.h"
+#include <stddef.h>
 #include <stdlib.h>
 #include <unistd.h>
 
-static char	*ft_break_rest(char **rest)
+static int	str_append_mem(char **s1, char *s2, size_t size2)
 {
-	char	*tmp_rest;
-	char	*start;
-	char	*end;
-	char	*line;
+	size_t	size1;
+	char	*tmp;
 
-	tmp_rest = NULL;
-	start = *rest;
-	end = *rest;
-	while (*end && *end != '\n')
-		end++;
-	if (*end != '\0')
-	{
-		tmp_rest = ft_strdup(end + 1);
-		line = ft_substrp(start, start, (end - start) + 1);
-	}
+	if (*s1)
+		size1 = ft_strlen(*s1);
 	else
-	{
-		tmp_rest = ft_strdup("");
-		line = ft_substrp(start, start, (end - start));
-	}
-	free(*rest);
-	*rest = tmp_rest;
-	return (line);
+		size1 = 0;
+	tmp = malloc(size2 + size1 + 1);
+	if (!tmp)
+		return (0);
+	if (*s1)
+		ft_memcpy(tmp, *s1, size1);
+	ft_memcpy(tmp + size1, s2, size2);
+	tmp[size1 + size2] = 0;
+	free(*s1);
+	*s1 = tmp;
+	return (1);
 }
 
-static char	*ft_free_rest(char **rest)
+static int	str_append_str(char **s1, char *s2)
 {
-	int	i;
+	return (str_append_mem(s1, s2, ft_strlen(s2)));
+}
 
-	i = 0;
-	while (i < OPEN_MAX)
-	{
-		if (rest[i])
-		{
-			free(rest[i]);
-			rest[i] = NULL;
-		}
-		i++;
-	}
+static char	*cleanup_and_return(char *ret)
+{
+	free(ret);
 	return (NULL);
 }
 
-static char	*ft_get_line(int fd, char **rest, char *buffer)
+static int	read_until_newline(int fd, char *buffer, char **ret)
 {
-	int		bytes_read;
-	char	*tmp_rest;
+	int		read_ret;
+	char	*tmp;
 
-	bytes_read = 1;
-	while (bytes_read > 0)
+	tmp = ft_strchr(buffer, '\n');
+	while (!tmp)
 	{
-		bytes_read = read(fd, buffer, BUFFER_SIZE);
-		if (bytes_read < 0)
-			return (ft_free_rest(rest));
-		buffer[bytes_read] = '\0';
-		tmp_rest = ft_strjoin(*rest, buffer);
-		free(*rest);
-		*rest = tmp_rest;
-		if (ft_strchr(*rest, '\n'))
-			return (ft_break_rest(rest));
+		if (!str_append_str(ret, buffer))
+			return (-1);
+		buffer[0] = 0;
+		read_ret = read(fd, buffer, BUFFER_SIZE);
+		if (read_ret <= 0)
+			return (read_ret);
+		buffer[read_ret] = 0;
+		tmp = ft_strchr(buffer, '\n');
 	}
-	if (bytes_read == 0 && *(*rest) != '\0')
-	{
-		tmp_rest = *rest;
-		*rest = NULL;
-		return (tmp_rest);
-	}
-	return (ft_free_rest(rest));
+	return (1);
 }
 
 char	*get_next_line(int fd)
 {
-	static char	*rest[OPEN_MAX];
-	char		*buffer;
-	char		*line;
+	static char	buffer[OPEN_MAX][BUFFER_SIZE + 1] = {0};
+	int			read_ret;
+	char		*tmp;
+	char		*ret;
 
-	if (fd < 0 || BUFFER_SIZE <= 0)
-		return (ft_free_rest(rest));
-	buffer = malloc((BUFFER_SIZE + 1) * sizeof(char));
-	if (!buffer)
+	ret = NULL;
+	if (fd < 0 || fd >= OPEN_MAX)
 		return (NULL);
-	if (!rest[fd])
-		rest[fd] = ft_strdup("");
-	if (!rest[fd])
-	{
-		free(buffer);
-		return (NULL);
-	}
-	line = ft_get_line(fd, &rest[fd], buffer);
-	free(buffer);
-	return (line);
+	read_ret = read_until_newline(fd, buffer[fd], &ret);
+	if (read_ret == -1)
+		return (cleanup_and_return(ret));
+	tmp = ft_strchr(buffer[fd], '\n');
+	if (tmp && !str_append_mem(&ret, buffer[fd], tmp - buffer[fd] + 1))
+		return (cleanup_and_return(ret));
+	if (!tmp && (!ret || !*ret))
+		return (cleanup_and_return(ret));
+	if (tmp)
+		ft_memmove(buffer[fd], tmp + 1, ft_strlen(tmp + 1) + 1);
+	else
+		buffer[fd][0] = 0;
+	return (ret);
 }
