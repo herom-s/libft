@@ -18,6 +18,7 @@ SRC = ft_atoi.c \
 	  ft_atod.c \
 	  ft_atof.c \
 	  ft_atol.c \
+	  ft_atoll.c \
       ft_isalpha.c \
       ft_itoa.c \
       ft_lstdelone.c \
