@@ -64,7 +64,7 @@ static int	get_count_word(char *str, char *charset)
 	return (count);
 }
 
-void	split_str(char **split_arr, char* str, char *charset, int start)
+void	split_str(char **split_arr, char *str, char *charset, int start)
 {
 	int		i;
 	int		j;
