@@ -50,6 +50,7 @@ SRC = ft_atoi.c \
       ft_memset.c \
       ft_putnbr_fd.c \
       ft_split.c \
+      ft_split_charset.c \
       ft_strjoin.c \
       ft_strmapi.c \
       ft_strtrim.c \
