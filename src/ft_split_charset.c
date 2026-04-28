@@ -11,26 +11,10 @@
 /* ************************************************************************** */
 
 #include "libft.h"
+#include <stddef.h>
+#include <stdlib.h>
 
-static char	*ft_strncpy(char *src, int n)
-{
-	int		i;
-	char	*dest;
-
-	i = 0;
-	dest = malloc(sizeof(char) * n + 1);
-	if (!dest)
-		return (NULL);
-	while (i < n && src[i])
-	{
-		dest[i] = src[i];
-		i++;
-	}
-	dest[i] = '\0';
-	return (dest);
-}
-
-static int	ft_is_sep(char c, char *charset)
+static int	ft_is_delim(char c, const char *charset)
 {
 	while (*charset)
 	{
@@ -41,61 +25,80 @@ static int	ft_is_sep(char c, char *charset)
 	return (0);
 }
 
-static int	get_count_word(char *str, char *charset)
+static size_t	ft_count_word(const char *s, const char *charset)
 {
-	int	i;
-	int	count;
-	int	start;
+	const char	*start;
+	const char	*end;
+	size_t		c_word;
 
-	i = 0;
-	count = 0;
-	start = 0;
-	while (str[i])
+	start = s;
+	end = s;
+	c_word = 0;
+	while (*start)
 	{
-		if (ft_is_sep(str[i], charset) && start != i)
+		if (!ft_is_delim(*start, charset))
 		{
-			start = i + 1;
-			count++;
+			end = start;
+			while (*end != '\0' && !ft_is_delim(*end, charset))
+				end++;
+			if (ft_is_delim(*end, charset) || *end == '\0')
+				c_word++;
+			start = end;
 		}
-		else if (ft_is_sep(str[i], charset) && start == i)
+		if (*start == '\0')
+			break ;
+		start++;
+	}
+	return (c_word);
+}
+
+static char	**ft_free_split(char **s, size_t i)
+{
+	while (i > 0)
+	{
+		free(s[--i]);
+	}
+	free(s);
+	s = (void *) 0;
+	return (s);
+}
+
+static char	**ft_split_str(char **res, char *s, char *charset)
+{
+	char		*start;
+	char			*end;
+	unsigned int	i;
+
+	start = s;
+	i = 0;
+	while (*start)
+	{
+		if (!ft_is_delim(*start, charset))
+		{
+			end = start;
+			while (*end != '\0' && !ft_is_delim(*end, charset))
+				end++;
+			res[i] = ft_substrp(start, start, end - start);
+			if (!res[i++])
+				return (ft_free_split(res, --i));
+			start = end;
+		}
+		else
 			start++;
-		i++;
 	}
-	return (count);
+	res[i] = (void *) 0;
+	return (res);
 }
 
-void	split_str(char **split_arr, char *str, char *charset, int start)
+char	**ft_split_charset(char *s, char *charset)
 {
-	int		i;
-	int		j;
+	char	**res;
 
-	i = 0;
-	j = 0;
-	while (str[i])
-	{
-		if (ft_is_sep(str[i], charset))
-		{
-			if (start != i)
-				split_arr[j++] = ft_strncpy(str + start, i - start);
-			start = i + 1;
-		}
-		i++;
-	}
-	if (start < i)
-		split_arr[j++] = ft_strncpy(str + start, i - start);
-	split_arr[j] = NULL;
-}
-
-char	**ft_split_charset(char *str, char *charset)
-{
-	int		start;
-	char	**split_arr;
-
-	split_arr = malloc((get_count_word(str, charset) + 1)
-			* sizeof(char *));
-	if (!split_arr)
-		return (NULL);
-	start = 0;
-	split_str(split_arr, str, charset, start);
-	return (split_arr);
+	if (!s || !charset)
+		return ((void *) 0);
+	res = ft_calloc((ft_count_word(s, charset) + 1) * sizeof(char *), 1);
+	if (!res)
+		return ((void *) 0);
+	res = ft_split_str(res, s, charset);
+	return (res);
 }
