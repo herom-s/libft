@@ -65,7 +65,7 @@ static char	**ft_free_split(char **s, size_t i)
 
 static char	**ft_split_str(char **res, char *s, char *charset)
 {
-	char		*start;
+	char			*start;
 	char			*end;
 	unsigned int	i;
 
